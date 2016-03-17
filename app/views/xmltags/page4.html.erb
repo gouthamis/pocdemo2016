@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<meta charset="ISO-8859-1">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="bootstrap.min.css">
+<script src="jquery.min.js"></script>
+<script src="bootstrap.min.js"></script>
+<title>Page3</title>
+
+<script>
+$(document).ready(function() {
+
+	$("#submitBtn").click(function() {
+	var xmlForDynamicTags = "";
+
+		$('.customInput').each(function(){
+			var heading1 = $(this).find('.headerClass1 > input').val();
+			var heading2 = $(this).find('.headerClass2 > input').val();
+
+			xmlForDynamicTags += "<page4><param1>"+heading1+"</param1>"+"<param2>"+heading2+"</param2></page4>";
+		});
+		console.log(xmlForDynamicTags);
+
+	});
+});
+</script>
+
+</head>
+<body>
+	<div class="container">
+		<font color="#941c62">
+			<h2>Test Purpose</h2>
+			<hr>
+			<div class="customInput">
+				<div class="headerClass1">
+					<h4>The purpose of this testing conducted on subject U.N.
+						Hazardous Materials Packaging was to qualify/certify this
+						packaging based on United Nations Test Requirements for</h4>
+					<input type="text" name="dyn1">
+				</div>
+				<div class="headerClass2">
+					<h4>Criteria.The package product is listed as a</h4>
+					<input type="text" name="dyn2">
+				</div>
+				<h4>package</h4>
+			</div>
+		</font>
+	</div>
+	<%= link_to 'Submit', new_xmltag_path %>
+</body>
+</html>

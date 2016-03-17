@@ -1,0 +1,38 @@
+<%= form_for(@content, html:{class:'form-horizontal'}) do |f| %>
+  <% if @content.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@content.errors.count, "error") %> prohibited this content from being saved:</h2>
+
+      <ul>
+      <% @content.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label :Name, class:'col-sm-2 control-label' %><br>
+    <div class="col-sm-6">
+    <%= f.text_field :name, class:'form-control' %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label :Designation, class:'col-sm-2 control-label' %><br>
+    <div class="col-sm-6">
+    <%= f.text_field :designation, class:'form-control' %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= f.label :JoinDate, class: 'col-sm-2 control-label' %><br>
+    <div class="col-sm-6">
+    <%= f.date_select :doj, class:'form-control' %>
+    </div>
+  </div>
+  <br />
+  <div class="actions form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+    <%= f.submit class:'btn btn-success' %>
+    </div>
+  </div>
+<% end %>

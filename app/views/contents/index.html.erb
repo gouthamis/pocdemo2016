@@ -1,0 +1,28 @@
+<h1>Listing Of Records</h1>
+<hr />
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align:center">Name</th>
+      <th style="text-align:center">Designation</th>
+      <th style="text-align:center">Date of Joining</th>
+      <th style="text-align:center" colspan="2">Select An Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contents.each do |content| %>
+      <tr>
+        <td><%= content.name %></td>
+        <td><%= content.designation %></td>
+        <td><%= content.doj %></td>
+        <td> <%= link_to 'Edit Offer Details', edit_content_path(content), class:'btn btn-info btn-block'%> </td>
+        <td> <%= link_to 'Generate Offer Letter', content, class:'btn btn-success btn-block'%> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Create New Record', new_content_path, class: 'btn btn-success' %>
